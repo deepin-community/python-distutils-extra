@@ -1,0 +1,14 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@ --with python3 --buildsystem=pybuild
+
+override_dh_auto_test:
+ifeq (, $(findstring nocheck, $(DEB_BUILD_OPTIONS)))
+	# run tests with all supported python 2 and 3 versions
+	set -e; for python in `py3versions -s`; do \
+	  echo "-- Running tests with $$python ----------------"; \
+	  LC_ALL=C LANGUAGE= LANG=C PYTHONPATH=. $$python test/auto.py -v; \
+	done
+	pyflakes3  DistUtilsExtra/ test/
+endif

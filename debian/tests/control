@@ -1,0 +1,6 @@
+Test-Command: cd test; python3 ./auto.py -v
+Depends: python3-distutils-extra,
+  python3-httplib2,
+  python3-gi,
+Restrictions: allow-stderr
+Features: test-name=py3
