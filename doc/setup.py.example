@@ -1,31 +1,24 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
-from distutils.core import setup
 import glob
-import os
-from DistUtilsExtra.command import *
 
-setup(name='software-properties',
-      version='0.50',
-      packages=[
-                'softwareproperties',
-                'softwareproperties.gtk',
-                'softwareproperties.kde',
-                ],
-      scripts=[
-               'software-properties-gtk',
-               'software-properties-kde',
-               ],
-      data_files=[
-                  ('share/software-properties/designer',
-                   glob.glob("data/designer/*.ui")
-                  ),
-                  ('share/software-properties/glade',
-                   glob.glob("data/glade/*.glade")
-                  ),
-                  ],
-      cmdclass = { "build" : build_extra.build_extra,
-                   "build_i18n" :  build_i18n.build_i18n,
-                   "build_help" :  build_help.build_help,
-                   "build_icons" :  build_icons.build_icons }
-     )
+from setuptools import setup
+
+from DistUtilsExtra.command import build_extra, build_help, build_i18n, build_icons
+
+setup(
+    name="software-properties",
+    version="0.50",
+    packages=["softwareproperties", "softwareproperties.gtk", "softwareproperties.kde"],
+    scripts=["software-properties-gtk", "software-properties-kde"],
+    data_files=[
+        ("share/software-properties/designer", glob.glob("data/designer/*.ui")),
+        ("share/software-properties/glade", glob.glob("data/glade/*.glade")),
+    ],
+    cmdclass={
+        "build": build_extra.build_extra,
+        "build_i18n": build_i18n.build_i18n,
+        "build_help": build_help.build_help,
+        "build_icons": build_icons.build_icons,
+    },
+)

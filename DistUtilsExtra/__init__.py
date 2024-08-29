@@ -1,1 +1,2 @@
-__version__ = '2.39'
+# pylint: disable=invalid-name
+__version__ = "3.0"
