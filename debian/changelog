@@ -1,3 +1,11 @@
+python-distutils-extra (3.1) unstable; urgency=medium
+
+  * Team upload.
+  * Use setuptools.command.sdist in tests rather than
+    setuptools.command.register (closes: #1086223, #1086308).
+
+ -- Colin Watson <cjwatson@debian.org>  Tue, 19 Nov 2024 19:09:39 +0100
+
 python-distutils-extra (3.0) unstable; urgency=medium
 
   * Team upload.
